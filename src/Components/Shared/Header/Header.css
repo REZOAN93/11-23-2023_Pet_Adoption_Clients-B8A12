@@ -1,0 +1,4 @@
+#sidebar a.active {
+    color: green;
+    background-color: none;
+  }

@@ -1,0 +1,12 @@
+.loginContainer{
+    background-image: url('../../../assets/login2.webp');
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+/* .loginpage{
+    background-image: url(../../../assets/authentication.png);
+    
+} */
