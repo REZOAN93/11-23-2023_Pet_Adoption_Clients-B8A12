@@ -3,23 +3,18 @@ import { FcBusinessman } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthProvider";
+import Header from "../../Shared/Header/Header";
 
 const Profile = () => {
     const { user, updateUser } = useContext(AuthContext);
     const navigate = useNavigate()
-    const [file, setFile] = useState();
-    function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
-    }
 
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const imageURL = form.imagelink.value;
-        console.log(name.imageURL)
-        handleUpdateUser(name, imageURL);
+        const image = form.imagelink.value;
+        handleUpdateUser(name, image);
         navigate(0)
     };
 
@@ -30,23 +25,25 @@ const Profile = () => {
         };
         updateUser(profile)
             .then(() => {
-                // Profile updated!
-                // ...
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Account is Updated",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch((error) => {
                 // An error occurred
                 // ...
             })
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Account is Updated",
-            showConfirmButton: false,
-            timer: 1500,
-        });
+        
     };
     return (
         <div>
+            <div>
+                <Header></Header>
+            </div>
             <div id="profileContainer" className="lg:w-10/12 mx-2 p-2 border rounded-lg lg:mx-auto grid grid-cols-1 lg:gap-2 lg:grid-cols-2 lg:my-10 lg:p-10">
                 <div className="w-full">
                     {user?.photoURL ? (
@@ -54,9 +51,7 @@ const Profile = () => {
                     ) : (
                         <FcBusinessman style={{ fontSize: "400px" }} />
                     )}
-                    <h2>Change Image:</h2>
-                    <input type="file" onChange={handleChange} />
-                    <img src={file} />
+
                 </div>
                 <div>
                     <form onSubmit={handleUpdate}>

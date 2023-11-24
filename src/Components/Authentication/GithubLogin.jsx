@@ -1,6 +1,6 @@
 import useAuth from '../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-import imggithub from '../../../assets/github.png'
+import imggithub from '../../assets/github.png'
 import { GithubAuthProvider } from 'firebase/auth';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 
@@ -18,12 +18,13 @@ const GithubLogin = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-
+                const userLastSign = user?.metadata?.lastSignInTime;
                 const userInfo = {
                     email: user?.email,
-                    name: user?.displayName
+                    name: user?.displayName,
+                    userLastSign: userLastSign
                 }
-                axiosPublic.post('/users', userInfo)
+                axiosPublic.put('/users', userInfo)
                     .then(res => {
                         console.log(res.data)
                         navigate(from, { replace: true });

@@ -33,7 +33,9 @@ const Registration = () => {
             // console.log(data)
             const firstName = data.firstName;
             const lastName = data.lastName;
-            const password = data.password
+            const password = data.password;
+            const name = firstName + " " + lastName;
+            const image = res.data?.data.display_url;
 
             if (password.length < 6) {
                 setError("Password must be six characters long or more");
@@ -64,12 +66,12 @@ const Registration = () => {
                         userCreationTime: userCreationTime
                     }
                     console.log(userInfo)
+                    handleUpdateUser(name, image);
                     // save user in the dataBase
                     axiosPublic.post('/users', userInfo)
                         .then(res => {
                             if (res.data?.insertedId) {
-                                handleUpdateUser(data.name, data.image);
-                                reset()
+                                // reset()
                                 Swal.fire({
                                     position: "center",
                                     icon: "success",

@@ -8,12 +8,15 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import SocialLogin from '../SocialLogin';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import GithubLogin from '../GithubLogin';
 
 
 const Login = () => {
     const { signinUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosPublic = useAxiosPublic()
     const from = location.state?.from?.pathname || '/'
     const [disabled, setDisable] = useState(true)
     const [error, setError] = useState('')
@@ -30,6 +33,18 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                const userLastSign = user?.metadata?.lastSignInTime;
+
+                const userInfo = {
+                    email: user?.email,
+                    name: user?.displayName,
+                    userLastSign: userLastSign
+                }
+                axiosPublic.put('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data)
+                        navigate(from, { replace: true });
+                    })
                 // ...
                 navigate(from, { replace: true });
             })
@@ -92,9 +107,10 @@ const Login = () => {
                     <div className="form-control  mt-2 text-center">
                         <p className=' text-black'>New here? <Link to={'/register'} className=' font-bold text-red-800'>Create a New Account</Link></p>
                         <p className='mt-1'>Or sign in with</p>
-                        <div className=' flex items-center justify-center gap-3'>
-                            <img className=' cursor-pointer h-10 rounded-full' src={imgfacebook} alt="" />
-                            <img className=' cursor-pointer h-10 rounded-full ' src={imggithub} alt="" />
+                        <div className=' flex pt-3 items-center justify-center gap-3'>
+                            {/* <img className=' cursor-pointer h-10 rounded-full' src={imgfacebook} alt="" /> */}
+                            <GithubLogin></GithubLogin>
+                            {/* <img className=' cursor-pointer h-10 rounded-full ' src={imggithub} alt="" /> */}
                             <SocialLogin></SocialLogin>
                         </div>
                     </div>

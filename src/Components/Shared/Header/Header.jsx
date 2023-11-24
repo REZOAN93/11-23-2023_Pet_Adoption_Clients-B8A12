@@ -1,7 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo1 from "../../../assets/logo-orig.png";
+import logo1 from "../../../assets/hockessin-adoption.png";
 import "./Header.css";
-import { FcBusinessman } from "react-icons/fc";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 
@@ -55,9 +54,6 @@ const Header = () => {
           <>
             <div className=" flex gap-7">
               <li>
-                <NavLink to={"/users"}>Users</NavLink>
-              </li>
-              <li>
                 <NavLink to={"/profile"}>Profile</NavLink>
               </li>
             </div>
@@ -99,14 +95,14 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex gap-2 items-center ">
-            <img className=" md:block lg:block h-10 lg:h-14 p-2 rounded-lg" src={logo1} alt="" />
-            {/* <a className=" text-base text-emerald-800 lg:text-3xl font-titleFont font-extrabold">
-              REZOAN
-            </a> */}
+            <img className=" md:block lg:block h-20 lg:w-24 p-2 rounded-lg" src={logo1} alt="" />
+            <a className=" text-[#4eecfa] lg:text-3xl font-titleFont font-extrabold">
+              ADOPTION
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul id="sidebar" className="text-xl flex gap-7 mr-16 font-bold px-1">
+          <ul id="sidebar" className="text-xl flex gap-7 text-[#516769] mr-16 font-bold px-1">
             {navData}
           </ul>
         </div>
@@ -173,7 +169,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a>Settings</a>
+                    <a>DashBoard</a>
                   </li>
                   <li>
                     <a onClick={handleLogOut}>Logout</a>
@@ -184,18 +180,18 @@ const Header = () => {
           ) : (
             <>
               <div className=" lg:text-4xl hidden lg:block md:block">
-                <FcBusinessman />
+                {/* <FcBusinessman /> */}
               </div>
             </>
           )}
           {user ? (
             <>
-              <button
+              {/* <button
                 onClick={handleLogOut}
                 className="btn btn-outline border-none lg:text-xl hover:bg-emerald-700 capitalize lg:ms-2 "
               >
                 SignOut
-              </button>
+              </button> */}
               <div className="ml-4 lg:ml-2">
                 <label className="swap swap-rotate">
                   {/* this hidden checkbox controls the state */}
