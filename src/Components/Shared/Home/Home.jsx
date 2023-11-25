@@ -5,6 +5,11 @@ import Header from "../Header/Header";
 import Category from "../../Category/Category";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import CallToAction from "../CallToAction/CallToAction";
+import MoreAbout from "../MoreAbout/MoreAbout";
+import Events from "../Events/Events";
+import Initiative from "../Initiative/Initiative";
+import Footer from "../New folder/Footer/Footer";
+
 
 const Home = () => {
     const axiosPublic = useAxiosPublic();
@@ -29,14 +34,12 @@ const Home = () => {
             <div className="my-10">
                 <CallToAction></CallToAction>
             </div>
-            {/* <div className=" my-16">
-                <About></About>
+            <div className=" my-16">
+                <MoreAbout></MoreAbout>
             </div>
-            <MoreAbout></MoreAbout>
-            <div className=" pt-10">
-                <UpcommingEvents></UpcommingEvents>
-            </div>
-            <PeopleComments></PeopleComments> */}
+            <Events></Events>
+            <Initiative></Initiative>
+            <Footer></Footer>
         </div>
     );
 };
