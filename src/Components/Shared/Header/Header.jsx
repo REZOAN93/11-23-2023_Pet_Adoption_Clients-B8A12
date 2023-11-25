@@ -3,12 +3,13 @@ import logo1 from "../../../assets/hockessin-adoption.png";
 import "./Header.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import useAdmin from "../../Hooks/useAdmin";
+// import useAdmin from "../../Hooks/useAdmin";
 
 
 const Header = () => {
   const { user, userSignOut } = useContext(AuthContext);
-
-  console.log(user)
+  const [isAdmin] = useAdmin();
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -31,11 +32,10 @@ const Header = () => {
     userSignOut()
       .then(() => {
         // Sign-out successful.
-        navigate("/");
       })
       .catch((error) => {
         // An error happened.
-        console.log(error);
+        // console.log(error);
       });
   };
   const navData = (
@@ -152,13 +152,17 @@ const Header = () => {
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full ">
                     <div className="lg:w-12 h-full rounded-full">
-                      <img className=" rounded-full h-12" src={user?.photoURL}/>
+                      <img className=" rounded-full h-12" src={user?.photoURL} />
                     </div>
                   </div>
                 </label>
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52">
                   <li><a onClick={() => navigate("/profile")}><button>Profile</button></a></li>
-                  <li><a>DashBoard</a></li>
+                  {user && isAdmin ===true ? (
+                    <NavLink to={'/dashboard/adminHome'}>DASHBOARD</NavLink>
+                  ) : user ? (
+                    <NavLink to={'/dashboard/userhome'}>DASHBOARD</NavLink>
+                  ) : null}
                   <li><a onClick={handleLogOut}>Logout</a></li>
                 </ul>
               </div>
