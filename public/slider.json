@@ -1,22 +1,52 @@
 [
-    {
-      "image": "https://i.ibb.co/X8jkbDn/cat.jpg",
-      "title": "Embrace Unconditional Love",
-      "subtitle": "Open your heart to a furry friend. Adopt a cat and experience pure love."
-    },
-    {
-      "image": "https://i.ibb.co/GnJKBtv/Explainer-How-To-Adopt-Dog.jpg",
-      "title": "Discover Loyalty",
-      "subtitle": "Find a loyal companion who will stand by you through thick and thin. Adopt a dog today."
-    },
-    {
-      "image": "https://i.ibb.co/4RTCNxR/Adopt-a-Rabbit.webp",
-      "title": "Hop Into Joy",
-      "subtitle": "Adopt a rabbit and add a bundle of joy to your life. Witness the happiness they bring."
-    },
-    {
-      "image": "https://i.ibb.co/z4Lb2RQ/adoptabird.jpg",
-      "title": "Soar to New Heights",
-      "subtitle": "Adopt a bird and let your spirits soar. Experience the beauty of feathered companionship."
-    }
-  ]
+  {
+    "image": "https://example.com/cta-image1.jpg",
+    "text": "Open your heart and home to a loving companion. Make a difference in their lives and yours.",
+    "quote": "A pet's love is a silent language that speaks volumes."
+  },
+  {
+    "image": "https://example.com/cta-image2.jpg",
+    "text": "Discover the joy of unconditional love. Adopt a pet and transform your life.",
+    "quote": "In the company of a pet, every day is an adventure filled with love."
+  },
+  {
+    "image": "https://example.com/cta-image3.jpg",
+    "text": "Give a forever home to a furry friend in need. Experience the warmth of companionship.",
+    "quote": "Adopting a pet is not just an action; it's a pledge to lifelong friendship."
+  },
+  {
+    "image": "https://example.com/cta-image4.jpg",
+    "text": "Every adoption story is a love story. Begin yours today and make a furry friend happy.",
+    "quote": "A pet's loyalty is a treasure that lasts a lifetime."
+  },
+  {
+    "image": "https://example.com/cta-image5.jpg",
+    "text": "Change a life, adopt a pet. Your new best friend is waiting for you.",
+    "quote": "The bond with a pet is a connection that goes beyond words."
+  },
+  {
+    "image": "https://example.com/cta-image6.jpg",
+    "text": "Transform lives with the power of adoption. Find joy in the company of a loyal companion.",
+    "quote": "A pet's presence is a constant source of joy and comfort."
+  },
+  {
+    "image": "https://example.com/cta-image7.jpg",
+    "text": "Adopting a pet is not just a choice; it's a commitment to love, care, and shared happiness.",
+    "quote": "The love of a pet is a reflection of the love you give."
+  },
+  {
+    "image": "https://example.com/cta-image8.jpg",
+    "text": "Experience the magic of adoption. Adopt a pet and fill your life with pawprints of joy.",
+    "quote": "A pet's love is the purest form of joy, always there to brighten your day."
+  },
+  {
+    "image": "https://example.com/cta-image9.jpg",
+    "text": "Make a difference in a pet's life. Adopt, love, and create beautiful memories together.",
+    "quote": "The journey of love begins with a pawprint."
+  },
+  {
+    "image": "https://example.com/cta-image10.jpg",
+    "text": "Unleash happiness by adopting a furry friend. Your perfect companion is just a click away.",
+    "quote": "A pet's love is a timeless treasure, always growing and never fading."
+  }
+]

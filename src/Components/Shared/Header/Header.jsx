@@ -54,7 +54,7 @@ const Header = () => {
           <>
             <div className=" flex gap-7">
               <li>
-                <NavLink to={"/profile"}>Profile</NavLink>
+                {/* <NavLink to={"/profile"}>Profile</NavLink> */}
               </li>
             </div>
           </>
@@ -89,13 +89,13 @@ const Header = () => {
             <ul
               tabIndex={0}
               id="sidebar"
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52"
             >
               {navData}
             </ul>
           </div>
           <div className="flex gap-2 items-center ">
-            <img className=" md:block lg:block h-20 lg:w-24 p-2 rounded-lg" src={logo1} alt="" />
+            <img className=" md:block lg:block h-16 lg:w-24 p-2 rounded-lg" src={logo1} alt="" />
             <a className=" text-[#4eecfa] lg:text-3xl font-titleFont font-extrabold">
               ADOPTION
             </a>
@@ -152,28 +152,14 @@ const Header = () => {
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full ">
                     <div className="lg:w-12 h-full rounded-full">
-                      <img
-                        className=" rounded-full h-12"
-                        src={user?.photoURL}
-                      />
+                      <img className=" rounded-full h-12" src={user?.photoURL}/>
                     </div>
                   </div>
                 </label>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a onClick={() => navigate("/profile")}>
-                      <button>Profile</button>
-                    </a>
-                  </li>
-                  <li>
-                    <a>DashBoard</a>
-                  </li>
-                  <li>
-                    <a onClick={handleLogOut}>Logout</a>
-                  </li>
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52">
+                  <li><a onClick={() => navigate("/profile")}><button>Profile</button></a></li>
+                  <li><a>DashBoard</a></li>
+                  <li><a onClick={handleLogOut}>Logout</a></li>
                 </ul>
               </div>
             </>
