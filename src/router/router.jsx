@@ -17,6 +17,8 @@ import AllUser from "../Components/Authentication/AllUser";
 import ManageItems from "../Components/Dashboard/ManageItems/ManageItems";
 import UpdateItems from "../Components/Dashboard/UpdateItems/UpdateItems";
 import Additems from "../Components/Dashboard/AddItems/Additems";
+import AddNewPat from "../Components/Dashboard/AddNewPat/AddNewPat";
+import PetListining from "../Components/Shared/PetListining/PetListining";
 
 
 export const router = createBrowserRouter([
@@ -29,10 +31,10 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/ourmenue",
-      //   element: <PrivateRoute><MenuPage /></PrivateRoute>,
-      // },
+      {
+        path: "/petlisting",
+        element: <PetListining />,
+      },
       // {
       //   path: "/order/:category",
       //   element: <Order />,
@@ -58,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: 'userhome',
         element: <Userhome></Userhome>
+      },
+      {
+        path: 'addnewpet',
+        element: <AddNewPat></AddNewPat>
       },
       {
         path: 'cart',
@@ -91,7 +97,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateItems/:id',
         element: <Adminroute><UpdateItems></UpdateItems></Adminroute>,
-        loader: ({ params }) => fetch(`https://11-11-2023-bistro-boss-server.vercel.app/menu/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
       }
     ]
   }

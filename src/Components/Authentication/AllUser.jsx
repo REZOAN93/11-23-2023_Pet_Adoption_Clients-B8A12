@@ -16,6 +16,8 @@ const AllUser = () => {
         }
     })
 
+    // console.log(users)
+
     const handleMakeAdmin = (id) => {
         Swal.fire({
             title: "Would you make this user Admin?",
@@ -71,8 +73,7 @@ const AllUser = () => {
     return (
         <div className='p-10'>
             <div className=' flex justify-evenly'>
-                <h2>All Users: </h2>
-                <h2>Total User:{users.length} </h2>
+                
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
@@ -80,6 +81,7 @@ const AllUser = () => {
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Profile</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -91,6 +93,14 @@ const AllUser = () => {
                             users.map((na, index) => <>
                                 <tr>
                                     <th>{index + 1}</th>
+                                    <td>
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={na.image} alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+
+                                    </td>
                                     <td>{na.name}</td>
                                     <td>{na.email}</td>
                                     {

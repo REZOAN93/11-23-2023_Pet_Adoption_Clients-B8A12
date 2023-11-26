@@ -159,9 +159,9 @@ const Header = () => {
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52">
                   <li><a onClick={() => navigate("/profile")}><button>Profile</button></a></li>
                   {user && isAdmin ===true ? (
-                    <NavLink to={'/dashboard/adminHome'}>DASHBOARD</NavLink>
+                    <NavLink className="px-3" to={'/dashboard/adminHome'}>Dashboard</NavLink>
                   ) : user ? (
-                    <NavLink to={'/dashboard/userhome'}>DASHBOARD</NavLink>
+                    <NavLink className="px-3" to={'/dashboard/userhome'}>Dashboard</NavLink>
                   ) : null}
                   <li><a onClick={handleLogOut}>Logout</a></li>
                 </ul>
