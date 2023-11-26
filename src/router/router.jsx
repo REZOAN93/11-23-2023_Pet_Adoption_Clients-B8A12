@@ -19,6 +19,10 @@ import UpdateItems from "../Components/Dashboard/UpdateItems/UpdateItems";
 import Additems from "../Components/Dashboard/AddItems/Additems";
 import AddNewPat from "../Components/Dashboard/AddNewPat/AddNewPat";
 import PetListining from "../Components/Shared/PetListining/PetListining";
+import PetByCategory from "../Components/Shared/Home/PetByCategory/PetByCategory";
+import PetDetails from "../PetDetails/PetDetails";
+import DonationCampaigns from "../Components/DonationCampaigns/DonationCampaigns";
+import DonateDetails from "../Components/DonationCampaigns/DonateDetails";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +39,24 @@ export const router = createBrowserRouter([
         path: "/petlisting",
         element: <PetListining />,
       },
+      {
+        path: '/payment',
+        element: <Payment></Payment>
+      },
+      {
+        path: "/donationCampaigns",
+        element: <DonationCampaigns />,
+      },
+      {
+        path: "/petDetails/:id",
+        element: <PrivateRoute><PetDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
+      },
+      {
+        path: "/donateDetails/:id",
+        element: <PrivateRoute><DonateDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
+      },
       // {
       //   path: "/order/:category",
       //   element: <Order />,
@@ -46,6 +68,11 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration />,
+      },
+      {
+        path: "/petbycategory/:id",
+        element: <PetByCategory />,
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
       },
       {
         path: "/profile",
@@ -69,10 +96,10 @@ export const router = createBrowserRouter([
         path: 'cart',
         element: <Cart></Cart>
       },
-      {
-        path: 'payment',
-        element: <Payment></Payment>
-      },
+      // {
+      //   path: 'payment',
+      //   element: <Payment></Payment>
+      // },
       {
         path: 'paymenthistroy',
         element: <PaymentHistory></PaymentHistory>

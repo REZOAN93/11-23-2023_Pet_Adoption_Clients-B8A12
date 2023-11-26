@@ -47,7 +47,7 @@ const Header = () => {
         <NavLink to={'/petlisting'}>Pet Listing</NavLink>
       </li>
       <li>
-        <NavLink to={"/donation"}>Donation Campaigns</NavLink>
+        <NavLink to={"/donationCampaigns"}>Donation Campaigns</NavLink>
       </li>
       <li>
         {user ? (
