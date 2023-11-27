@@ -84,9 +84,9 @@ const DonateDetails = () => {
             {/* Modal Data */}
             <dialog id="my_modal_3" className="modal pl-10 lg:pl-0">
                 <div className="modal-box border space-y-4">
-                    <p className=' text-center'> Payment Strips</p>
+                    <p className=' text-center font-bold text-3xl'> Payment Details</p>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm data={data} />
                     </Elements>
                 </div>
             </dialog>

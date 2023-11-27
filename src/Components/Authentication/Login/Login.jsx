@@ -10,6 +10,7 @@ import SocialLogin from '../SocialLogin';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import GithubLogin from '../GithubLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const axiosPublic = useAxiosPublic()
+    const [showPassword, setshowPassword] = useState(false);
     const from = location.state?.from?.pathname || '/'
     const [disabled, setDisable] = useState(true)
     const [error, setError] = useState('')
@@ -84,11 +86,15 @@ const Login = () => {
                             </label>
                             <input type="email" placeholder="email" name='email' className="input input-bordered" />
                         </div>
+                        
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name='password' className="input input-bordered" />
+                            <div className='relative w-full'>
+                            <input name='password' type={showPassword ? "text" : "password"} placeholder="Password" className="input text-lg w-full py-6 input-bordered" required />
+                            <span onClick={() => setshowPassword(!showPassword)} className=" cursor-pointer absolute right-5 top-3 text-2xl">{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
+                            </div>
                         </div>
                         <div className="form-control mt-5 grid grid-cols-2 gap-6">
                             <div className=' rounded-2xl bg-white text-center items-center flex justify-center'>

@@ -16,7 +16,7 @@ const AllUser = () => {
         }
     })
 
-    // console.log(users)
+    console.log(users)
 
     const handleMakeAdmin = (id) => {
         Swal.fire({
@@ -73,7 +73,8 @@ const AllUser = () => {
     return (
         <div className='p-10'>
             <div className=' flex justify-evenly'>
-                
+                <h2>All Users: </h2>
+                <h2>Total User:{users.length} </h2>
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">

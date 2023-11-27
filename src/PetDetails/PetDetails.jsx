@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../Components/Shared/Header/Header';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../Components/Hooks/useAuth';
@@ -26,21 +25,20 @@ const PetDetails = () => {
         const Phone = form.Phone.value;
         const address = form.address.value;
 
-        const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount }
+        const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, date_added, max_donation_amount, donated_amount }
         console.log(requestAdoption)
         axiosSecure.post(`/requestforadoption/${adoptionID}`, requestAdoption)
             .then(res => {
-                console.log(res.data)
-                if (res.data) {
-                    navigate('/')
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "The Adoption request is submitted . will advise you soon",
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
+                console.log(res?.data)
+                navigate('/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "The Adoption request is submitted . will advise you soon",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
             })
 
     }
