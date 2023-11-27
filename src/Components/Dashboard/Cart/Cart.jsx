@@ -1,17 +1,15 @@
 import { FaCross, FaRemoveFormat } from 'react-icons/fa';
-
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import useCards from '../../Hooks/useCards';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useCards from '../../Hooks/useCards';
+import { FaPenToSquare } from "react-icons/fa6";
 
 
 const Cart = () => {
     const [cart, refetch] = useCards()
     const axiosSecure = useAxiosSecure()
-    const totalPrice = cart.reduce((total, items) => total + items.price, 0)
-    console.log(cart, totalPrice)
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -40,25 +38,18 @@ const Cart = () => {
         });
     }
     return (
-        <div>
-            <div className=' p-8 flex justify-evenly'>
-                <p className=' text-5xl'>Total Orders: {cart.length}</p>
-                <p className=' text-5xl'>Total Price:{totalPrice}</p>
-                {
-                    cart.length ? <Link to={'/dashboard/payment'}><button className='btn btn-primary'>Pay</button></Link> : <button disabled className='btn btn-primary'>Pay</button>
-                }
-
-            </div>
+        <div className=' py-5 px-5'>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                            <th>Pet Details</th>
+                            <th>Status</th>
                             <th>Update</th>
-                            <th>Action</th>
+                            <th>Delete</th>
+                            <th>Adopted</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,17 +70,22 @@ const Cart = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="font-bold">{na.name}</div>
-                                                <div className="text-sm opacity-50">{na.category}</div>
+                                                <div className="font-bold">{na.pet_name}</div>
+                                                <div className="text-sm opacity-50">{na.pet_category}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        $ {na.price}
+                                        {na.adoption_status}
                                     </td>
-                                    <td>Purple</td>
+                                    <th>
+                                        <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl "><FaPenToSquare /></button>
+                                    </th>
                                     <th>
                                         <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl text-red-600"><RiDeleteBin5Line /></button>
+                                    </th>
+                                    <th>
+                                        <button onClick={() => handleDelete(na._id)} className="btn btn-ghost bg-[#adf6fc] hover:bg-[#53e3f0]"><img className=' w-10 h-8' src="https://i.ibb.co/ZJ3fw2S/5218522.png" alt="" /></button>
                                     </th>
                                 </tr>
                             </>)

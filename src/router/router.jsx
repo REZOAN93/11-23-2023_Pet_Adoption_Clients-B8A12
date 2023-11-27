@@ -57,10 +57,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><DonateDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
       },
-      // {
-      //   path: "/order/:category",
-      //   element: <Order />,
-      // },
       {
         path: "/login",
         element: <Login />,
@@ -93,17 +89,14 @@ export const router = createBrowserRouter([
         element: <AddNewPat></AddNewPat>
       },
       {
-        path: 'cart',
+        path: 'addedpet',
         element: <Cart></Cart>
       },
-      // {
-      //   path: 'payment',
-      //   element: <Payment></Payment>
-      // },
       {
         path: 'paymenthistroy',
         element: <PaymentHistory></PaymentHistory>
       },
+
       // admin routes
       {
         path: 'adminHome',
