@@ -25,6 +25,7 @@ import DonationCampaigns from "../Components/DonationCampaigns/DonationCampaigns
 import DonateDetails from "../Components/DonationCampaigns/DonateDetails";
 import CreateDonation from "../Components/DonationCampaigns/CreateDonation";
 import MyDonationCampaigns from "../Components/DonationCampaigns/MyDonationCampaigns";
+import UpdateDonation from "../Components/DonationCampaigns/UpdateDonation";
 
 
 export const router = createBrowserRouter([
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
       {
         path: "/donateDetails/:id",
         element: <PrivateRoute><DonateDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
       },
       {
         path: "/login",
@@ -128,6 +129,11 @@ export const router = createBrowserRouter([
         path: 'updateItems/:id',
         element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
+      },
+      {
+        path: 'updateCampaigns/:id',
+        element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
+        // loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
       }
     ]
   }

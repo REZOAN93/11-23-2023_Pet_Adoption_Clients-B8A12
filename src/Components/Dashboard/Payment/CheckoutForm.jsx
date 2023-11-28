@@ -81,12 +81,13 @@ const CheckoutForm = (data) => {
                 console.log(transctionId)
                 // Now save the payment in the DataBase.
                 const payment = {
-                    email: user?.email,
+                    paidbyuser: user?.email,
                     transctionId: paymentIntent.id,
                     date: new Date(),
                     cartId: data?.data?._id,
                     image: data?.data?.image,
                     pet_name: data?.data?.pet_name,
+                    adopted_id: data.data?._id,
                     pet_age: data?.data?.pet_age,
                     pet_category: data?.data?.pet_category,
                     pet_location: data?.data?.pet_location,
@@ -96,7 +97,8 @@ const CheckoutForm = (data) => {
                     date_added: data?.data?.date_added,
                     max_donation_amount: data?.data?.max_donation_amount,
                     donated_amount: totalPrice,
-                    status: 'Pending'
+                    status: 'Pending',
+                    CampaignAddedby: data?.data?.CampaignAddedby
                 }
                 console.log(payment)
                 const res = await axiosSecure.post('/payments', payment)

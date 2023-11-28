@@ -16,7 +16,7 @@ const DonationCampaigns = () => {
         queryKey: ['pet'],
         queryFn: async ({ pageParam = 1 }) => {
             try {
-                const res = await axiosPublic.get(`/pet?page=${pageParam}`);
+                const res = await axiosPublic.get(`/allDonation?page=${pageParam}`);
                 console.log('API Response:', res.data);
                 return res.data;
             } catch (error) {

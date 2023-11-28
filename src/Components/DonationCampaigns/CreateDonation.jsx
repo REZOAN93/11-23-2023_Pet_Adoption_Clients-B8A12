@@ -44,12 +44,14 @@ const CreateDonation = () => {
             const long_description = data.long_description;
             const adoption_status = 'Not Adopted';
             const max_donation_amount = data.max_donation_amount;
-            const donated_amount = data.donated_amount;
+            const donated_amount = 0;
+            const UserCandonateamount = data.UserCandonateamount;
             const date_added = formattedDate;
-            const petAdderby = user.email;
+            const CampaignAddedby = user.email;
+            // const CampaignAddedby = user.email;
             const lastdateforDonation = data.lastdateforDonation;
             const donationStatus = "Available"
-            const donationData = { image, pet_name, donationStatus, lastdateforDonation, petAdderby, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, max_donation_amount, donated_amount, date_added }
+            const donationData = { image, pet_name, donationStatus, lastdateforDonation, CampaignAddedby, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, max_donation_amount, donated_amount, date_added }
             console.log(donationData)
 
             axiosSecure.post('/addDonationData', donationData)
@@ -102,8 +104,8 @@ const CreateDonation = () => {
                         <label className="label">
                             <span className="label-text font-bold text-black">Available for Donation per User</span>
                         </label>
-                        <input type="number" placeholder="Enter the maximum amount user can donate" {...register("donated_amount", { required: true })} className="input input-bordered" />
-                        {errors.donated_amount && <span className='text-red-700 font-bold'>Please Enter the amount user can donate</span>}
+                        <input type="number" placeholder="Enter the maximum amount user can donate" {...register("UserCandonateamount", { required: true })} className="input input-bordered" />
+                        {errors.UserCandonateamount && <span className='text-red-700 font-bold'>Please Enter the amount user can donate</span>}
                     </div>
 
                 </div>

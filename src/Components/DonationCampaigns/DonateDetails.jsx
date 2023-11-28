@@ -10,8 +10,9 @@ const stripePromise = loadStripe(import.meta.env.VITE_GATEWAY_KEY);
 
 const DonateDetails = () => {
     const axiosSecure = useAxiosSecure()
-    const data = useLoaderData()
     const { user } = useAuth()
+    const data = useLoaderData()
+    console.log(data)
     const { image, _id: adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount } = data;
     const dateString = new Date();
     const year = dateString.getFullYear();
@@ -20,33 +21,33 @@ const DonateDetails = () => {
     const formattedDate = `${year}-${month}-${day}`;
     const navigate = useNavigate()
 
-    const handleSubmitRequest = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const UserName = form.name.value;
-        const email = form.email.value;
-        const requestDate = form.requestDate.value;
-        const Phone = form.Phone.value;
-        const address = form.address.value;
+    // const handleSubmitRequest = (event) => {
+    //     event.preventDefault();
+    //     const form = event.target;
+    //     const UserName = form.name.value;
+    //     const email = form.email.value;
+    //     const requestDate = form.requestDate.value;
+    //     const Phone = form.Phone.value;
+    //     const address = form.address.value;
+    //     const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount }
+    //     console.log(requestAdoption)
+    //     axiosSecure.post(`/requestforadoption/${adoptionID}`, requestAdoption)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             if (res.data) {
+    //                 navigate('/')
+    //                 Swal.fire({
+    //                     position: "top-end",
+    //                     icon: "success",
+    //                     title: "The Adoption request is submitted . will advise you soon",
+    //                     showConfirmButton: false,
+    //                     timer: 1500
+    //                 })
+    //             }
+    //         })
 
-        const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount }
-        console.log(requestAdoption)
-        axiosSecure.post(`/requestforadoption/${adoptionID}`, requestAdoption)
-            .then(res => {
-                console.log(res.data)
-                if (res.data) {
-                    navigate('/')
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "The Adoption request is submitted . will advise you soon",
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            })
-
-    }
+    // }
+    
     return (
         <div >
             <div className=' border-b-2 border-[#adf6fc]'>
