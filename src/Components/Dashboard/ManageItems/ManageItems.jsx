@@ -63,7 +63,7 @@ const ManageItems = () => {
                         </thead>
                         <tbody>
                             {
-                                menus.map((na, index) => <>
+                                menus?.map((na, index) => <>
                                     <tr>
                                         <th>{index + 1}</th>
                                         <td><img className=' rounded-b-full rounded-r-full w-[70px] h-[70px]' src={na.image} alt="" /></td>

@@ -28,7 +28,7 @@ const Home = () => {
             <div className="max-w-6xl mt-10 mx-auto">
                 <SectionTitle heading="Explore Our Pet Categories" subheading="Discover joy in our pet categories—explore dogs' playful energy, cats' graceful charm, or the allure of exotic pets. Each category is a chapter in the heartwarming story of adoption. Find your perfect companion and celebrate moments filled with unconditional love."></SectionTitle>
                 <div className=" grid grid-cols-1 mx-16 lg:mx-0 lg:grid-cols-3 mb-10  gap-5 ">
-                    {category.map(na => <Category key={na._id} categories={na}></Category>)}
+                    {category?.map(na => <Category key={na._id} categories={na}></Category>)}
                 </div>
             </div>
             <div className="my-10">

@@ -16,7 +16,7 @@ const PetByCategory = () => {
                 <Header></Header>
             </div>
             <div className='grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'>
-                {data.map((na) => (
+                {data?.map((na) => (
                     <div key={na._id} className="card bg-base-100 border">
 
                         <div key={na._id} className="card bg-base-100 shadow-lg">

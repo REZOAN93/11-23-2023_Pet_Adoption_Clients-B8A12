@@ -34,7 +34,7 @@ const Events = () => {
                         className="swiper"
                     >
                         {
-                            events.map(na => <>
+                            events?.map(na => <>
                                 <SwiperSlide key={na._id} className=' w-full ' >
                                     <div className='w-full  py-4 text-black rounded-lg top-0 text-center h-full flex justify-center flex-col items-center'>
                                         <p className=' font-bold text-2xl '>Date: {na.date}</p>

@@ -28,13 +28,13 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/paymenthistroy"><FaShoppingCart></FaShoppingCart> My Payment History</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaCalendar></FaCalendar> All Users</NavLink></li>
                             </> : <>
-                                <li><NavLink to="/dashboard/addnewpet"><FaHome></FaHome>Add a pet</NavLink></li>
-                                <li><NavLink to="/dashboard/addedpet"><FaCalendar></FaCalendar>My added pets</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><FaCalendar></FaCalendar>Adoption Request</NavLink></li>
-                                <li><NavLink to="/dashboard/createDonation"><FaCalendar></FaCalendar>Create Donation Campaign</NavLink></li>
-                                <li><NavLink to="/dashboard/myDonationCampaigns"><FaCalendar></FaCalendar>My Donation Campaigns</NavLink></li>
+                                <li><NavLink to="/dashboard/addnewpet">Add a pet</NavLink></li>
+                                <li><NavLink to="/dashboard/addedpet">My added Pets</NavLink></li>
+                                <li><NavLink to="/dashboard/adoptionrequest">Adoption Request</NavLink></li>
+                                <li><NavLink to="/dashboard/createDonation">Create Donation Campaign</NavLink></li>
+                                <li><NavLink to="/dashboard/myDonationCampaigns">My Donation Campaigns</NavLink></li>
                                 {/* <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li> */}
-                                <li><NavLink to="/dashboard/paymenthistroy"><FaShoppingCart></FaShoppingCart> My Donations</NavLink></li>
+                                <li><NavLink to="/dashboard/paymenthistroy">My Donations</NavLink></li>
                                 {/* <li><NavLink to="/dashboard/review"><FaCalendar></FaCalendar> Add Review</NavLink></li>
                                 <li><NavLink to="/dashboard/review"><FaList></FaList> My Booking</NavLink></li> */}
                             </>
@@ -42,8 +42,8 @@ const Dashboard = () => {
                         <div className=' divider'></div>
                         {/* Shared NavLink */}
                         <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
-                        <li><NavLink to="/order/salad"><FaSearch></FaSearch>Menu</NavLink></li>
-                        <li><NavLink to="/order/contact"><MdEmail />Contact</NavLink></li>
+                        {/* <li><NavLink to="/order/salad"><FaSearch></FaSearch>Menu</NavLink></li>
+                        <li><NavLink to="/order/contact"><MdEmail />Contact</NavLink></li> */}
                     </ul>
                 </div>
                 <div className=' flex-1'>

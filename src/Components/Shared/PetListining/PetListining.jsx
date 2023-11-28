@@ -81,7 +81,7 @@ const PetListining = () => {
                     >
                         <option value="">All Categories</option>
                         {
-                            category.map(na => <option key={na._id} value={na.category}>{na.category}</option>)
+                            category?.map(na => <option key={na._id} value={na.category}>{na.category}</option>)
                         }
                     </select>
                 </div>
@@ -93,7 +93,7 @@ const PetListining = () => {
                 loader={<div style={{ textAlign: 'center', marginTop: '20px' }}><h4>Loading...</h4></div>}
                 className='grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
             >
-                {sortedPetData.map((na) => (
+                {sortedPetData?.map((na) => (
                     <div key={na._id} className="card bg-base-100">
 
                         <div key={na._id} className="card bg-base-100 shadow-lg">

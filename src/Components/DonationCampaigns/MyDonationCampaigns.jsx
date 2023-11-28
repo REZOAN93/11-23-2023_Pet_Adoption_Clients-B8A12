@@ -144,7 +144,7 @@ const MyDonationCampaigns = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            campaigns.map((na, index) => <>
+                            campaigns?.map((na, index) => <>
                                 <tr>
                                     <th>
                                         <label>
@@ -227,7 +227,7 @@ const MyDonationCampaigns = () => {
                             </thead>
                             <tbody>
                                 {/* row 1 */}
-                                {donators.map((na, index) => <>
+                                {donators?.map((na, index) => <>
                                     <tr>
                                         <th>{index + 1}</th>
                                         <td>{na.paidbyuser}</td>

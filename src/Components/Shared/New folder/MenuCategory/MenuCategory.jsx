@@ -7,7 +7,7 @@ const MenuCategory = ({ arrayDAta,title }) => {
         <div>
             <section className=' grid grid-cols-2 gap-10 justify-between max-w-6xl mx-auto'>
                 {
-                    arrayDAta.map(na => <MenuItem items={na} key={na._id}></MenuItem>)
+                    arrayDAta?.map(na => <MenuItem items={na} key={na._id}></MenuItem>)
                 }
             </section>
             <div className=' text-white flex justify-center my-5'>

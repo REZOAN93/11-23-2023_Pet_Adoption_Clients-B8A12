@@ -69,7 +69,7 @@ const DonationCampaigns = () => {
                     loader={<div style={{ textAlign: 'center', marginTop: '20px' }}><h4>Loading...</h4></div>}
                     className='grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
                 >
-                    {sortedPetData.map((na) => (
+                    {sortedPetData?.map((na) => (
                         <div key={na._id} className="card bg-base-100 shadow-lg">
 
                             <div key={na._id} className="card bg-base-100">

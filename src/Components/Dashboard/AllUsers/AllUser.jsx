@@ -88,7 +88,7 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((na, index) => <>
+                            users?.map((na, index) => <>
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{na.name}</td>

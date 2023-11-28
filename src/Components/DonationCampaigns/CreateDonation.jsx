@@ -51,7 +51,7 @@ const CreateDonation = () => {
             // const CampaignAddedby = user.email;
             const lastdateforDonation = data.lastdateforDonation;
             const donationStatus = "Available"
-            const donationData = { image, pet_name, donationStatus, lastdateforDonation, CampaignAddedby, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, max_donation_amount, donated_amount, date_added }
+            const donationData = { image, pet_name,UserCandonateamount, donationStatus, lastdateforDonation, CampaignAddedby, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, max_donation_amount, donated_amount, date_added }
             console.log(donationData)
 
             axiosSecure.post('/addDonationData', donationData)

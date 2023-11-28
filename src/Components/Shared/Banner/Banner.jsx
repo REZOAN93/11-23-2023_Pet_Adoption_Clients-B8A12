@@ -34,7 +34,7 @@ const Banner = () => {
                 className="swiper"
             >
                 {
-                    slider.map(na => <>
+                    slider?.map(na => <>
                         <SwiperSlide key={na._id} className=' w-full h-64 lg:h-[500px]' >
                             <div className=''>
                                 <img className=' w-full h-64 lg:h-[500px]' src={na.image} alt="" />

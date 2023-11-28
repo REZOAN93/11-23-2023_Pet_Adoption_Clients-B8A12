@@ -26,6 +26,7 @@ import DonateDetails from "../Components/DonationCampaigns/DonateDetails";
 import CreateDonation from "../Components/DonationCampaigns/CreateDonation";
 import MyDonationCampaigns from "../Components/DonationCampaigns/MyDonationCampaigns";
 import UpdateDonation from "../Components/DonationCampaigns/UpdateDonation";
+import MyAdoptionRequest from "../Components/Dashboard/MyAdoptionRequest/MyAdoptionRequest";
 
 
 export const router = createBrowserRouter([
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
         path: 'paymenthistroy',
         element: <PaymentHistory></PaymentHistory>
       },
+      {
+        path: 'adoptionrequest',
+        element: <MyAdoptionRequest></MyAdoptionRequest>
+      },
 
       // admin routes
       {
@@ -133,7 +138,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateCampaigns/:id',
         element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
-        // loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
       }
     ]
   }
