@@ -27,6 +27,7 @@ import CreateDonation from "../Components/DonationCampaigns/CreateDonation";
 import MyDonationCampaigns from "../Components/DonationCampaigns/MyDonationCampaigns";
 import UpdateDonation from "../Components/DonationCampaigns/UpdateDonation";
 import MyAdoptionRequest from "../Components/Dashboard/MyAdoptionRequest/MyAdoptionRequest";
+import AllPets from "../Components/AllPets/AllPets";
 
 
 export const router = createBrowserRouter([
@@ -115,8 +116,8 @@ export const router = createBrowserRouter([
 
       // admin routes
       {
-        path: 'adminHome',
-        element: <Adminroute><AdminHome></AdminHome></Adminroute>
+        path: 'allPets',
+        element: <Adminroute><AllPets></AllPets></Adminroute>
       },
       {
         path: 'allusers',

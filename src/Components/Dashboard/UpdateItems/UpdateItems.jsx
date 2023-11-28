@@ -49,7 +49,7 @@ const UpdateItems = () => {
         const max_donation_amount = dbData?.max_donation_amount;
         const donated_amount = dbData?.donated_amount;
         const date_added = dbData?.date_added;
-        const petAdderby = user.email;
+        const petAdderby = dbData?.petAdderby;
         const petUpdateData = { image, pet_name, petAdderby, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, max_donation_amount, donated_amount, date_added }
         console.log(petUpdateData)
 

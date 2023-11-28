@@ -84,12 +84,15 @@ const DonationCampaigns = () => {
                                             <p className=' px-5 rounded-lg font-bold text-left'>{na.pet_category}</p>
                                         </div>
                                     </div>
-                                    <div className=' flex justify-between py-3'>
-                                        <Link to={`/donateDetails/${na._id}`} className=' bg-[#adf6fc] px-8 rounded-lg text-base btn hover:bg-[#3e9fa8]'>Details</Link>
-
+                                    <div className=' flex justify-between items-end py-3'>
+                                        {/* <Link  className=' bg-[#adf6fc] px-8 rounded-lg text-base btn hover:bg-[#3e9fa8]'>Details</Link> */}
+                                        {
+                                            na?.donationStatus==="Available" ? <Link to={`/donateDetails/${na._id}`}><button className=' bg-[#adf6fc] px-8 rounded-lg text-base btn hover:bg-[#3e9fa8]'>Details</button></Link> : <button disabled className='btn btn-primary px-8 rounded-lg'>Details</button>
+                                        }
                                         <div className=' text-right'>
-                                            <h2 className=" flex items-center gap-1">Maximum Donation Amount:  $ {na.max_donation_amount}.00</h2>
+                                            <h2 className=" flex items-center gap-1">Maximum Donation:  $ {na.max_donation_amount}.00</h2>
                                             <p><span className=' font-bold'>Donated Amount:</span> $ {na.donated_amount}.00</p>
+                                            <p className=' font-bold'>Donation Status: {na.donationStatus}</p>
                                         </div>
                                     </div>
                                 </div>

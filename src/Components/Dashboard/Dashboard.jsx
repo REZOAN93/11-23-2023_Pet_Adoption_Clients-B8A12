@@ -20,21 +20,22 @@ const Dashboard = () => {
                     <ul className='menu p-4 space-y-3'>
                         {
                             isAdmin ? <>
-                                <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/dashboard/additems"><FaCalendar></FaCalendar> Add Items</NavLink></li>
-                                <li><NavLink to="/dashboard/manageItems"><FaCalendar></FaCalendar> Manage Items</NavLink></li>
-                                <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li>
-                                <li><NavLink to="/dashboard/manageBookings"><FaShoppingCart></FaShoppingCart> Manage Bookings</NavLink></li>
-                                <li><NavLink to="/dashboard/paymenthistroy"><FaShoppingCart></FaShoppingCart> My Payment History</NavLink></li>
+                                <li><NavLink to="/dashboard/addnewpet">Add a pet</NavLink></li>
+                                <li><NavLink to="/dashboard/addedpet">My added Pets</NavLink></li>
+                                <li><NavLink to="/dashboard/adoptionrequest">Adoption Request</NavLink></li>
+                                <li><NavLink to="/dashboard/createDonation">Create Donation Campaign</NavLink></li>
+                                <li><NavLink to="/dashboard/myDonationCampaigns">My Donation Campaigns</NavLink></li>
+                                <li><NavLink to="/dashboard/paymenthistroy">My Donations</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaCalendar></FaCalendar> All Users</NavLink></li>
+                                <li><NavLink to="/dashboard/allPets"><FaCalendar></FaCalendar> All Pets</NavLink></li>
                             </> : <>
                                 <li><NavLink to="/dashboard/addnewpet">Add a pet</NavLink></li>
                                 <li><NavLink to="/dashboard/addedpet">My added Pets</NavLink></li>
                                 <li><NavLink to="/dashboard/adoptionrequest">Adoption Request</NavLink></li>
                                 <li><NavLink to="/dashboard/createDonation">Create Donation Campaign</NavLink></li>
                                 <li><NavLink to="/dashboard/myDonationCampaigns">My Donation Campaigns</NavLink></li>
-                                {/* <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li> */}
                                 <li><NavLink to="/dashboard/paymenthistroy">My Donations</NavLink></li>
+                                {/* <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li> */}
                                 {/* <li><NavLink to="/dashboard/review"><FaCalendar></FaCalendar> Add Review</NavLink></li>
                                 <li><NavLink to="/dashboard/review"><FaList></FaList> My Booking</NavLink></li> */}
                             </>
