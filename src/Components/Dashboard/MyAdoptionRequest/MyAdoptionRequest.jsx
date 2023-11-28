@@ -112,18 +112,19 @@ const MyAdoptionRequest = () => {
 
                                 <th>
                                     {
-                                        na?.adoptionRequest === 'Pending' || na?.adoptionRequest === 'Reject' ? (
-                                            <td>
-                                                <button onClick={() => handleInvitation(na._id)} className='btn'>
-                                                    Accept Invitation for Adopt
-                                                </button>
-                                            </td>
-                                        ) : (
+                                        na?.adoptionRequest === 'Accept' ? (
                                             <td>
                                                 <button onClick={() => handleInvitation(na._id)} className='btn'>
                                                     Reject Invitation for Adopt
                                                 </button>
                                             </td>
+                                        ) : (
+                                           
+                                             <td>
+                                             <button onClick={() => handleInvitation(na._id)} className='btn'>
+                                                 Accept Invitation for Adopt
+                                             </button>
+                                         </td>
                                         )
                                     }
 

@@ -11,18 +11,17 @@ const Cart = () => {
     const axiosSecure = useAxiosSecure()
 
     const handleAdopt = (id) => {
-        console.log(id)
         axiosSecure.patch(`/users/adopts/${id}`)
-                    .then(res => {
-                        if (res?.data?.modifiedCount > 0) {
-                            Swal.fire({
-                                title: "Done!",
-                                text: "The Pet is Adopted",
-                                icon: "success"
-                            });
-                            refetch()
-                        }
-                    })
+            .then(res => {
+                if (res?.data?.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Done!",
+                        text: "The Pet is Adopted",
+                        icon: "success"
+                    });
+                    refetch()
+                }
+            })
     }
 
 
@@ -65,7 +64,7 @@ const Cart = () => {
                             <th>Status</th>
                             <th>Update</th>
                             <th>Delete</th>
-                            <th>Adopted</th>
+                            <th>Click for Adopt</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,7 +100,16 @@ const Cart = () => {
                                         <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl text-red-600"><RiDeleteBin5Line /></button>
                                     </th>
                                     <th>
-                                        <button onClick={() => handleAdopt(na._id)} className="btn btn-ghost bg-[#adf6fc] hover:bg-[#53e3f0]"><img className=' w-10 h-8' src="https://i.ibb.co/ZJ3fw2S/5218522.png" alt="" /></button>
+                                        {na?.adoption_status === 'Adopted' ? (
+                                            <button  className='btn bg-red-200 hover:bg-red-500'>
+                                                Adopted
+                                            </button>
+                                        ) : (
+                                            <button onClick={() => handleAdopt(na._id, na.adoption_status)} className='btn w-34 border-none hover:bg-[#54e0ec] bg-[#adf6fc]'>
+                                                Click for Adopt
+                                            </button>
+                                        )}
+                                       
                                     </th>
                                 </tr>
                             </>)
