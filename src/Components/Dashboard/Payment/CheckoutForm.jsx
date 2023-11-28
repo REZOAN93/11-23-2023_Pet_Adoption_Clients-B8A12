@@ -84,10 +84,9 @@ const CheckoutForm = (data) => {
                     paidbyuser: user?.email,
                     transctionId: paymentIntent.id,
                     date: new Date(),
-                    cartId: data?.data?._id,
+                    CampaignsId: data?.data?._id,
                     image: data?.data?.image,
                     pet_name: data?.data?.pet_name,
-                    adopted_id: data.data?._id,
                     pet_age: data?.data?.pet_age,
                     pet_category: data?.data?.pet_category,
                     pet_location: data?.data?.pet_location,
@@ -153,7 +152,7 @@ const CheckoutForm = (data) => {
                     Donate
                 </button>
                 <p className=' text-red-700 font-bold text-lg'>{error}</p>
-                {transctionId ? <p>your Transction ID: {transctionId}</p> : ''}
+                {/* {transctionId ? <p>your Transction ID: {transctionId}</p> : ''} */}
             </form>
         </div>
     );
