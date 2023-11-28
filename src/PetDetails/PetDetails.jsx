@@ -8,7 +8,7 @@ const PetDetails = () => {
     const axiosSecure = useAxiosSecure()
     const data = useLoaderData()
     const { user } = useAuth()
-    const { image, _id: adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount } = data;
+    const { image, _id: adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, adoption_status, date_added, max_donation_amount, donated_amount,petAdderby } = data;
     const dateString = new Date();
     const year = dateString.getFullYear();
     const month = String(dateString.getMonth() + 1).padStart(2, "0");
@@ -24,8 +24,7 @@ const PetDetails = () => {
         const requestDate = form.requestDate.value;
         const Phone = form.Phone.value;
         const address = form.address.value;
-
-        const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, date_added, max_donation_amount, donated_amount }
+        const requestAdoption = { UserName, email, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, date_added, max_donation_amount, donated_amount,petAdderby }
         console.log(requestAdoption)
         axiosSecure.post(`/requestforadoption/${adoptionID}`, requestAdoption)
             .then(res => {

@@ -1,4 +1,4 @@
-import { FaCross, FaRemoveFormat } from 'react-icons/fa';
+import { FaCross, FaEdit, FaRemoveFormat } from 'react-icons/fa';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -6,10 +6,26 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useCards from '../../Hooks/useCards';
 import { FaPenToSquare } from "react-icons/fa6";
 
-
 const Cart = () => {
     const [cart, refetch] = useCards()
     const axiosSecure = useAxiosSecure()
+
+    const handleAdopt = (id) => {
+        console.log(id)
+        axiosSecure.patch(`/users/adopts/${id}`)
+                    .then(res => {
+                        if (res?.data?.modifiedCount > 0) {
+                            Swal.fire({
+                                title: "Done!",
+                                text: "The Pet is Adopted",
+                                icon: "success"
+                            });
+                            refetch()
+                        }
+                    })
+    }
+
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -79,13 +95,13 @@ const Cart = () => {
                                         {na.adoption_status}
                                     </td>
                                     <th>
-                                        <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl "><FaPenToSquare /></button>
+                                        <td><Link className="btn btn-ghost text-2xl text-green-700" to={`/dashboard/updateItems/${na._id}`}><FaEdit /></Link></td>
                                     </th>
                                     <th>
                                         <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl text-red-600"><RiDeleteBin5Line /></button>
                                     </th>
                                     <th>
-                                        <button onClick={() => handleDelete(na._id)} className="btn btn-ghost bg-[#adf6fc] hover:bg-[#53e3f0]"><img className=' w-10 h-8' src="https://i.ibb.co/ZJ3fw2S/5218522.png" alt="" /></button>
+                                        <button onClick={() => handleAdopt(na._id)} className="btn btn-ghost bg-[#adf6fc] hover:bg-[#53e3f0]"><img className=' w-10 h-8' src="https://i.ibb.co/ZJ3fw2S/5218522.png" alt="" /></button>
                                     </th>
                                 </tr>
                             </>)

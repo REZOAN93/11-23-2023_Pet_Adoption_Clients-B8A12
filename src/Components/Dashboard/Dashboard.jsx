@@ -31,8 +31,8 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/addnewpet"><FaHome></FaHome>Add a pet</NavLink></li>
                                 <li><NavLink to="/dashboard/addedpet"><FaCalendar></FaCalendar>My added pets</NavLink></li>
                                 <li><NavLink to="/dashboard/reservation"><FaCalendar></FaCalendar>Adoption Request</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><FaCalendar></FaCalendar>Create Donation Campaign</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><FaCalendar></FaCalendar>My Donation Campaigns</NavLink></li>
+                                <li><NavLink to="/dashboard/createDonation"><FaCalendar></FaCalendar>Create Donation Campaign</NavLink></li>
+                                <li><NavLink to="/dashboard/myDonationCampaigns"><FaCalendar></FaCalendar>My Donation Campaigns</NavLink></li>
                                 {/* <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li> */}
                                 <li><NavLink to="/dashboard/paymenthistroy"><FaShoppingCart></FaShoppingCart> My Donations</NavLink></li>
                                 {/* <li><NavLink to="/dashboard/review"><FaCalendar></FaCalendar> Add Review</NavLink></li>

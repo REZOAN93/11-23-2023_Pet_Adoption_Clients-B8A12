@@ -23,6 +23,8 @@ import PetByCategory from "../Components/Shared/Home/PetByCategory/PetByCategory
 import PetDetails from "../PetDetails/PetDetails";
 import DonationCampaigns from "../Components/DonationCampaigns/DonationCampaigns";
 import DonateDetails from "../Components/DonationCampaigns/DonateDetails";
+import CreateDonation from "../Components/DonationCampaigns/CreateDonation";
+import MyDonationCampaigns from "../Components/DonationCampaigns/MyDonationCampaigns";
 
 
 export const router = createBrowserRouter([
@@ -86,11 +88,19 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addnewpet',
-        element: <AddNewPat></AddNewPat>
+        element: <PrivateRoute><AddNewPat></AddNewPat></PrivateRoute>
       },
       {
         path: 'addedpet',
-        element: <Cart></Cart>
+        element: <PrivateRoute><Cart></Cart></PrivateRoute>
+      },
+      {
+        path: 'myDonationCampaigns',
+        element: <PrivateRoute><MyDonationCampaigns></MyDonationCampaigns></PrivateRoute>
+      },
+      {
+        path: 'createDonation',
+        element: <PrivateRoute><CreateDonation></CreateDonation></PrivateRoute>
       },
       {
         path: 'paymenthistroy',
@@ -116,8 +126,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateItems/:id',
-        element: <Adminroute><UpdateItems></UpdateItems></Adminroute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/menu/${params.id}`)
+        element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
       }
     ]
   }
