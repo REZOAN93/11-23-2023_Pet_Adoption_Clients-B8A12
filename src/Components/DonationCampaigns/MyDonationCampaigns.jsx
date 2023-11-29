@@ -37,47 +37,24 @@ const MyDonationCampaigns = () => {
 
     // console.log(Alldonators)
 
-    const handlePause = (id) => {
-        setPause(!pause)
-        if (pause == true) {
-            const status = 'Available'
-            const dataupdate = { status }
-            console.log(dataupdate)
-            axiosSecure.patch(`/updateDonationActive/${id}`, dataupdate)
-                .then(res => {
-                    refetch()
-                    console.log(res.data)
-                    if (res?.data?.modifiedCount > 0) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "The Donation Campaign is Activated",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-        }
-        else {
-            const status = 'Unavailable'
-            const dataupdate = { status }
-            console.log(dataupdate)
-            axiosSecure.patch(`/updateDonationActive/${id}`, dataupdate)
-                .then(res => {
-                    console.log(res.data)
-                    refetch()
-                    if (res?.data?.modifiedCount > 0) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "The Donation Campaign is Paused",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-        }
-    }
+    const handlePause = (id, donationStatus) => {
+        const newStatus = donationStatus === 'Available' ? 'Unavailable' : 'Available';
+        const dataupdate = { status: newStatus };
+
+        axiosSecure.patch(`/updateDonationActive/${id}`, dataupdate)
+            .then(res => {
+                refetch();
+                console.log(res.data);
+                const successMessage = newStatus === 'Available' ? 'The Campaign is Available' : 'The Campaign is Unavailable';
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: successMessage,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+    };
 
     const showDonator = async (id) => {
         const res = await axiosSecure.get(`/dontatorsdata/${id}`)
@@ -162,7 +139,7 @@ const MyDonationCampaigns = () => {
                                                 <div className="font-bold">{na.pet_name}</div>
                                                 <div className=""> Maximum Donation Amount: <span className=' font-bold'>${na.max_donation_amount}.00</span></div>
                                                 <div className="text-sm opacity-50">{na.pet_category}</div>
-                                                {na.donationStatus == 'Available' ? <div className="text-sm opacity-50">The Donation Campaigns is active.</div> : <div className="text-sm opacity-50">The Donation Campaigns is Inactive.</div>}
+                                                {na.donationStatus == 'Available' ? <div className="text-sm ">The Donation Campaigns is <span className=' font-bold text-emerald-800'>active.</span></div> : <div className="text-sm opacity-50">The Donation Campaigns is <span className=' font-bold text-red-800'>Inactive.</span></div>}
                                             </div>
                                         </div>
                                     </td>
@@ -172,9 +149,15 @@ const MyDonationCampaigns = () => {
 
                                     <th>
                                         {
-                                            na?.donationStatus == 'Available' ? <> <td><button onClick={() => handlePause(na._id)} className=' btn'>Pause Campaigns</button></td></> : <td><button onClick={() => handlePause(na._id)} className=' btn'>UnPaused Campaigns</button></td>
+                                            na?.donationStatus == 'Available' ? <> <td><button onClick={() => handlePause(na._id, na.donationStatus)} className=' btn bg-[#adf6fc] hover:bg-red-400'>Pause Campaigns</button></td></> : <td><button onClick={() => handlePause(na._id, na.donationStatus)} className=' btn bg-[#adf6fc] hover:bg-[#51dce9]'>UnPaused Campaigns</button></td>
                                         }
                                     </th>
+
+                                    {/* <th>
+                                        {
+                                            na?.donationStatus == 'Available' ? <> <td><button onClick={() => handlePause(na._id)} className=' btn'>Pause Campaigns</button></td></> : <td><button onClick={() => handlePause(na._id)} className=' btn'>UnPaused Campaigns</button></td>
+                                        }
+                                    </th> */}
                                     {/* <th>
                                         <button onClick={() => handleDelete(na._id)} className="btn btn-ghost text-xl text-red-600"><RiDeleteBin5Line /></button>
                                     </th> */}

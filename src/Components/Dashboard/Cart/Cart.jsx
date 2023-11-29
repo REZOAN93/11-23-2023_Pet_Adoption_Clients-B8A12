@@ -101,7 +101,7 @@ const Cart = () => {
                                     </th>
                                     <th>
                                         {na?.adoption_status === 'Adopted' ? (
-                                            <button  className='btn bg-red-200 hover:bg-red-500'>
+                                            <button disabled className='btn bg-red-200 hover:bg-red-500'>
                                                 Adopted
                                             </button>
                                         ) : (

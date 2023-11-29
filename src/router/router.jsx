@@ -28,6 +28,7 @@ import MyDonationCampaigns from "../Components/DonationCampaigns/MyDonationCampa
 import UpdateDonation from "../Components/DonationCampaigns/UpdateDonation";
 import MyAdoptionRequest from "../Components/Dashboard/MyAdoptionRequest/MyAdoptionRequest";
 import AllPets from "../Components/AllPets/AllPets";
+import Alldonationcampaigns from "../Components/DonationCampaigns/Alldonationcampaigns/Alldonationcampaigns";
 
 
 export const router = createBrowserRouter([
@@ -122,6 +123,10 @@ export const router = createBrowserRouter([
       {
         path: 'allusers',
         element: <Adminroute><AllUser></AllUser></Adminroute>
+      },
+      {
+        path: 'alldonationcampaigns',
+        element: <Adminroute><Alldonationcampaigns></Alldonationcampaigns></Adminroute>
       },
       {
         path: 'additems',

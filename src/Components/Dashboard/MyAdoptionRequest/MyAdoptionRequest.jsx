@@ -127,7 +127,6 @@ const MyAdoptionRequest = () => {
                                          </td>
                                         )
                                     }
-
                                 </th>
                             </tr>
                         </>)

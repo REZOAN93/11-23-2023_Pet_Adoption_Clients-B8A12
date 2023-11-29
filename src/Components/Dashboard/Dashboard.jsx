@@ -28,6 +28,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/paymenthistroy">My Donations</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaCalendar></FaCalendar> All Users</NavLink></li>
                                 <li><NavLink to="/dashboard/allPets"><FaCalendar></FaCalendar> All Pets</NavLink></li>
+                                <li><NavLink to="/dashboard/alldonationcampaigns"><FaCalendar></FaCalendar> All Donation Campaigns</NavLink></li>
                             </> : <>
                                 <li><NavLink to="/dashboard/addnewpet">Add a pet</NavLink></li>
                                 <li><NavLink to="/dashboard/addedpet">My added Pets</NavLink></li>

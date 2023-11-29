@@ -28,6 +28,7 @@ const SocialLogin = () => {
                     name: user?.displayName,
                     userLastSign: userLastSign
                 }
+
                 axiosPublic.put('/users', userInfo)
                     .then(res => {
                         console.log(res.data)
