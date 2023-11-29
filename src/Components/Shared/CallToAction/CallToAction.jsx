@@ -9,7 +9,7 @@ const CallToAction = () => {
                 <p className=" text-center text-lg font-bold text-black">----  Give a Home, Give Love  ----</p>
                 <p className=" mx-auto mt-5 w-4/6 py-2 text-center text-gray-600 border-[#4eecfa] border-b-2 border-t-2">we believe in the transformative power of adoption. Every pet deserves a loving home, and you can be the hero they've been waiting for. Join us in making a difference—adopt a furry friend today!</p>
             </div>
-            <div className=' grid grid-cols-2 text-justify max-w-6xl mx-auto my-5 gap-5 text-base'>
+            <div className=' grid lg:grid-cols-2 text-justify max-w-6xl mx-auto my-5 gap-5 text-base'>
                 <div>
                     <div className=' space-y-2'>
                         <p className=' rounded-lg shadow-lg p-3'><span className=' font-bold'>Change a Life: </span>By adopting, you're not just bringing home a pet; you're saving a life. Give a shelter animal the chance to thrive in a caring environment.</p>

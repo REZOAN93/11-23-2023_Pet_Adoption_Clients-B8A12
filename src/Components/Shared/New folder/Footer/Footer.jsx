@@ -4,11 +4,11 @@ import img1 from '../../../../assets/hockessin-adoption.png'
 const Footer = () => {
     return (
         <div className=' text-white'>
-            <div className='grid grid-cols-2 '>
-                <div className='bg-[#adf6fc] p-20 space-y-2 text-black  text-center'>
-                    <div className=' flex text-right items-center'>
+            <div className='grid lg:grid-cols-2 '>
+                <div className='bg-[#adf6fc] lg:p-20 space-y-2 text-black  text-center'>
+                    <div className=' flex justify-between text-right px-3 lg:px-0 lg:text-right items-center'>
                         <div>
-                            <img className=' h-64' src={img1} alt="" />
+                            <img className=' h-20 lg:h-64' src={img1} alt="" />
                         </div>
                         <div>
                             <p className=' text-xl'>CONTACT US</p>
@@ -20,7 +20,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex bg-[#1f7077] flex-col space-y-2 items-center pl-10 pt-32'>
+                <div className='flex bg-[#1f7077] flex-col lg:space-y-2 items-center pl-10 lg:pt-32'>
                     <footer className="footer text-neutral-content">
                         <nav>
                             <header className="footer-title">Support</header>

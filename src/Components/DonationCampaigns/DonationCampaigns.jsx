@@ -51,14 +51,14 @@ const DonationCampaigns = () => {
             <div className=''>
                 <Header></Header>
             </div>
-            <div className=' relative h-[500px]'>
+            <div className=' relative lg:h-[500px] '>
                 <div className=' absolute w-full border h-full  bg-gradient-to-t text-center pt-20 text-white from-black'>
                     <h1 className='font-bold mt-5 text-5xl'>Support Our Campaign ,Donate To Our Cause</h1>
                     <p className=' mt-10 text-lg'>We're running a donation campaign to support Pet Adoption. Your contribution can make a real difference! </p>
                     <p className=' px-52 text-lg text-center '>Pet Adoption Fund is a non-profit, no-kill organization, with a 501(c)(3) status, dedicated to saving animals since 1983.  Your donation is tax deductible.  *Fed ID# 95-3842460*</p>
                 </div>
                 <div>
-                    <img className='h-[500px] w-full' src="https://i.ibb.co/QDN160w/image-asset.jpg" alt="" />
+                    <img className='lg:h-[500px] w-full' src="https://i.ibb.co/QDN160w/image-asset.jpg" alt="" />
                 </div>
             </div>
             <div className=' flex gap-5  items-center justify-center py-2'>
@@ -67,7 +67,7 @@ const DonationCampaigns = () => {
                     next={loadMorePets}
                     hasMore={hasNextPage}
                     loader={<div style={{ textAlign: 'center', marginTop: '20px' }}><h4>Loading...</h4></div>}
-                    className='grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
+                    className='grid p-4 lg:p-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
                 >
                     {sortedPetData?.map((na) => (
                         <div key={na._id} className="card bg-base-100 shadow-lg">

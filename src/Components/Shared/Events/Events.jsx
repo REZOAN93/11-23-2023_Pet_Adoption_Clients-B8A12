@@ -16,7 +16,7 @@ const Events = () => {
             .then(res => setEvents(res.data))
     }, [axiosPublic])
     return (
-        <div className=' max-w-6xl mx-auto my-10'>
+        <div className='max-w-6xl mx-auto my-10'>
             <div className=' grid grid-cols-2'>
                 <div>
                     <Swiper
@@ -40,7 +40,7 @@ const Events = () => {
                                         <p className=' font-bold text-2xl '>Date: {na.date}</p>
                                         <p className=' font-bold  text-xl text-center lg:text-xl'>{na.name}</p>
                                         <p className=' font-bold text-xl lg:text-xl'>Location: {na.location}</p>
-                                        <img className='  rounded-full my-5 w-48 h-48 ' src={na.image} alt="" />
+                                        <img className='  rounded-full my-5 lg:w-48 lg:h-48 ' src={na.image} alt="" />
                                         <p className=' w-5/6 mt-1 text-justify mx-auto text-base'>{na.description}</p>
                                     </div>
                                 </SwiperSlide>

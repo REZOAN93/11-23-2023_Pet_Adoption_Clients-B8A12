@@ -71,17 +71,17 @@ const AllUser = () => {
         });
     }
     return (
-        <div className='p-10'>
-            <div className=' flex justify-evenly'>
+        <div className='pb-10'>
+            {/* <div className=' flex justify-evenly'>
                 <h2>All Users: </h2>
                 <h2>Total User:{users.length} </h2>
-            </div>
+            </div> */}
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Sl#</th>
                             <th>Profile</th>
                             <th>Name</th>
                             <th>Email</th>

@@ -63,7 +63,7 @@ const PetListining = () => {
     return (
         <div>
             <Header></Header>
-            <div className=' flex gap-5 border-t-2 border-b-2 items-center justify-center py-2'>
+            <div className=' lg:flex gap-5 border-t-2 border-b-2 items-center justify-center py-2'>
                 <div>
                     <input
                         type="text"
@@ -77,7 +77,7 @@ const PetListining = () => {
                     <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
-                        className="px-3 py-2 border rounded"
+                        className="px-3 py-2 mt-3 lg:mt-0 border rounded"
                     >
                         <option value="">All Categories</option>
                         {
@@ -91,7 +91,7 @@ const PetListining = () => {
                 next={loadMorePets}
                 hasMore={hasNextPage}
                 loader={<div style={{ textAlign: 'center', marginTop: '20px' }}><h4>Loading...</h4></div>}
-                className='grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
+                className='grid md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-7xl mx-auto mt-5 mb-20'
             >
                 {sortedPetData?.map((na) => (
                     <div key={na._id} className="card bg-base-100">

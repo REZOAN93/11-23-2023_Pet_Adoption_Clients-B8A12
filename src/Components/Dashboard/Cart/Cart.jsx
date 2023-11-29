@@ -5,10 +5,64 @@ import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useCards from '../../Hooks/useCards';
 import { FaPenToSquare } from "react-icons/fa6";
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import useAuth from '../../Hooks/useAuth';
+import './Cart.css'
+import { useEffect } from 'react';
+
 
 const Cart = () => {
     const [cart, refetch] = useCards()
     const axiosSecure = useAxiosSecure()
+    const { user } = useAuth()
+    const [addedPet, setPetAdded] = useState([])
+    const [itemPerPage, setItemPerPage] = useState(10);
+    const numberOfPages = Math.ceil(cart?.length / itemPerPage);
+    const [currentpage, setCurrentPage] = useState(0);
+    const pages = [...Array(numberOfPages).keys()];
+    console.log(currentpage + 1, "currentPage", itemPerPage, "Item Per Page")
+
+    const handleItemPerPage = (event) => {
+        const value = parseInt(event.target.value);
+        setItemPerPage(value);
+        setCurrentPage(0);
+    };
+
+    const handlepreviousbtn = () => {
+        if (currentpage > 0) {
+            setCurrentPage(currentpage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentpage < pages.length - 1) {
+            setCurrentPage(currentpage + 1);
+        }
+    };
+
+    useEffect(() => {
+        axiosSecure.get(`/userAddedpet?email=${user?.email}&page=${currentpage + 1}&size=${itemPerPage}`)
+            .then(res => {
+                console.log(res.data)
+                setPetAdded(res.data)
+            })
+    }, [currentpage, itemPerPage, axiosSecure, user?.email])
+    console.log(addedPet)
+
+
+    // const { refetch: reload, isPending, error, data: addPetByUser = [] } = useQuery({
+    //     queryKey: ['addedPet', user?.email],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get(`/userAddedpet?email=${user?.email}&page=${currentpage+1}&size=${itemPerPage}`)
+    //         return res.data
+    //     }
+    // })
+
+
+
+
+
 
     const handleAdopt = (id) => {
         axiosSecure.patch(`/users/adopts/${id}`)
@@ -70,11 +124,13 @@ const Cart = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            cart?.map((na, index) => <>
+                            addedPet?.data?.map((na, index) => <>
+
                                 <tr>
                                     <th>
                                         <label>
-                                            {index + 1}
+                                            {/* {index + 1} */}
+                                            {index + 1 + currentpage * itemPerPage}
                                         </label>
                                     </th>
                                     <td>
@@ -109,7 +165,7 @@ const Cart = () => {
                                                 Click for Adopt
                                             </button>
                                         )}
-                                       
+
                                     </th>
                                 </tr>
                             </>)
@@ -118,7 +174,43 @@ const Cart = () => {
 
                 </table>
             </div>
-        </div>
+            <div className=' flex items-center justify-center mb-5'>
+                {
+                    cart?.length > 10 ? <>
+                        <div className="pagination border px-20 py-1 rounded-lg bg-emerald-200">
+                            {/* <p>Current page :{currentpage + 1}</p> */}
+                            <button className=' hover:bg-[#50d7e4] btn bg-[#adf6fc] border-none' onClick={handlepreviousbtn} style={{ marginRight: "10px" }}>
+                                Previous
+                            </button>
+                            {pages.map((na) => (
+                                <button
+                                    id="btnstyle"
+                                    onClick={() => setCurrentPage(na)}
+                                    className={currentpage === na ? "selectedstyle" : ""}
+                                    key={na}
+                                >
+                                    {na + 1}
+                                </button>
+                            ))}
+                            <button className=' hover:bg-[#50d7e4] btn bg-[#adf6fc] border-none' onClick={handleNextPage}>Next</button>
+                            <select
+                                className="selectOption border-none focus:outline-none"
+                                value={itemPerPage}
+                                onChange={handleItemPerPage}
+                                name=""
+                                id=""
+                            >
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                            <p> </p>
+                        </div>
+                    </> : ''
+                }
+            </div >
+        </div >
     );
 };
 

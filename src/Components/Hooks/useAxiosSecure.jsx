@@ -2,9 +2,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
-
 const axiosSecure = axios.create({
-    baseURL: 'https://11-23-2023-pet-adoption-server.vercel.app',
+    baseURL: 'http://localhost:5000',
 })
 
 const useAxiosSecure = () => {

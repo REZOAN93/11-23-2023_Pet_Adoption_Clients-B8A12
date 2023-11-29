@@ -12,9 +12,7 @@ import Payment from "../Components/Dashboard/Payment/Payment";
 import PaymentHistory from "../Components/Dashboard/PaymentHistory/PaymentHistory";
 import Adminroute from "./Adminroute";
 import AllUser from "../Components/Authentication/AllUser";
-import ManageItems from "../Components/Dashboard/ManageItems/ManageItems";
 import UpdateItems from "../Components/Dashboard/UpdateItems/UpdateItems";
-import Additems from "../Components/Dashboard/AddItems/Additems";
 import AddNewPat from "../Components/Dashboard/AddNewPat/AddNewPat";
 import PetListining from "../Components/Shared/PetListining/PetListining";
 import PetByCategory from "../Components/Shared/Home/PetByCategory/PetByCategory";
@@ -54,12 +52,12 @@ export const router = createBrowserRouter([
       {
         path: "/petDetails/:id",
         element: <PrivateRoute><PetDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/pet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
       },
       {
         path: "/donateDetails/:id",
         element: <PrivateRoute><DonateDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/campaigns/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
       },
       {
         path: "/login",
@@ -72,7 +70,7 @@ export const router = createBrowserRouter([
       {
         path: "/petbycategory/:id",
         element: <PetByCategory />,
-        loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/category/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
       },
       {
         path: "/profile",
@@ -123,22 +121,14 @@ export const router = createBrowserRouter([
         element: <Adminroute><Alldonationcampaigns></Alldonationcampaigns></Adminroute>
       },
       {
-        path: 'additems',
-        element: <Adminroute><Additems></Additems></Adminroute>
-      },
-      {
-        path: 'manageItems',
-        element: <Adminroute><ManageItems></ManageItems></Adminroute>
-      },
-      {
         path: 'updateItems/:id',
         element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/pet/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
       },
       {
         path: 'updateCampaigns/:id',
         element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/campaigns/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
       }
     ]
   }

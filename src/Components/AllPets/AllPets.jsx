@@ -66,7 +66,7 @@ const AllPets = () => {
     }
 
     return (
-        <div className='px-10 py-5'>
+        <div className='pb-10'>
 
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
