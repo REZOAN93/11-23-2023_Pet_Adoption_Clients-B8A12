@@ -46,6 +46,7 @@ const Cart = () => {
             .then(res => {
                 console.log(res.data)
                 setPetAdded(res.data)
+
             })
     }, [currentpage, itemPerPage, axiosSecure, user?.email])
     console.log(addedPet)
@@ -59,23 +60,53 @@ const Cart = () => {
     //     }
     // })
 
-
-
-
-
-
     const handleAdopt = (id) => {
-        axiosSecure.patch(`/users/adopts/${id}`)
-            .then(res => {
-                if (res?.data?.modifiedCount > 0) {
-                    Swal.fire({
-                        title: "Done!",
-                        text: "The Pet is Adopted",
-                        icon: "success"
-                    });
-                    refetch()
-                }
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You Want to Adopt This Pet",
+            // icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, I like to adopt It"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/adopts/${id}`)
+                    .then(res => {
+                        if (res?.data?.modifiedCount > 0) {
+                            // Swal.fire({
+                            //     title: "Done!",
+                            //     text: "The Pet is Adopted",
+                            //     icon: "success"
+                            // });
+                            window.location.reload()
+                        }
+                    })
+            }
+        });
+
+
+        // Swal.fire({
+        //     title: "Do you want to Adopt this Pet?",
+        //     showDenyButton: true,
+        //     confirmButtonText: "Yes",
+        // }).then((result) => {
+        //     axiosSecure.patch(`/users/adopts/${id}`)
+        //         .then(res => {
+        //             if (res?.data?.modifiedCount > 0) {
+        //                 Swal.fire({
+        //                     title: "Done!",
+        //                     text: "The Pet is Adopted",
+        //                     icon: "success"
+        //                 });
+        //                 window.location.reload()
+        //             }
+        //         })
+        //     if (result.isConfirmed) {
+        //         Swal.fire("Saved!", "", "success");
+        //     }
+        // });
+
     }
 
 
@@ -98,7 +129,7 @@ const Cart = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            refetch()
+
                         }
                     })
 

@@ -3,7 +3,6 @@ import Header from '../Shared/Header/Header';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import { FaLocationDot } from 'react-icons/fa6';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Footer from '../Shared/New folder/Footer/Footer';
 
