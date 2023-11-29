@@ -7,12 +7,10 @@ import Registration from "../Components/Authentication/Registeration/Registratio
 import Login from "../Components/Authentication/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Components/Dashboard/Dashboard";
-import Userhome from "../Components/Dashboard/UserHome/Userhome";
 import Cart from "../Components/Dashboard/Cart/Cart";
 import Payment from "../Components/Dashboard/Payment/Payment";
 import PaymentHistory from "../Components/Dashboard/PaymentHistory/PaymentHistory";
 import Adminroute from "./Adminroute";
-import AdminHome from "../Components/Dashboard/AdminHome/AdminHome";
 import AllUser from "../Components/Authentication/AllUser";
 import ManageItems from "../Components/Dashboard/ManageItems/ManageItems";
 import UpdateItems from "../Components/Dashboard/UpdateItems/UpdateItems";
@@ -86,10 +84,6 @@ export const router = createBrowserRouter([
     path: "dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
-      {
-        path: 'userhome',
-        element: <Userhome></Userhome>
-      },
       {
         path: 'addnewpet',
         element: <PrivateRoute><AddNewPat></AddNewPat></PrivateRoute>

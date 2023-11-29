@@ -36,16 +36,12 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/createDonation">Create Donation Campaign</NavLink></li>
                                 <li><NavLink to="/dashboard/myDonationCampaigns">My Donation Campaigns</NavLink></li>
                                 <li><NavLink to="/dashboard/paymenthistroy">My Donations</NavLink></li>
-                                {/* <li><NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li> */}
-                                {/* <li><NavLink to="/dashboard/review"><FaCalendar></FaCalendar> Add Review</NavLink></li>
-                                <li><NavLink to="/dashboard/review"><FaList></FaList> My Booking</NavLink></li> */}
                             </>
                         }
                         <div className=' divider'></div>
                         {/* Shared NavLink */}
                         <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
-                        {/* <li><NavLink to="/order/salad"><FaSearch></FaSearch>Menu</NavLink></li>
-                        <li><NavLink to="/order/contact"><MdEmail />Contact</NavLink></li> */}
+                        
                     </ul>
                 </div>
                 <div className=' flex-1'>

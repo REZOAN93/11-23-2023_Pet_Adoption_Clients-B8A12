@@ -27,7 +27,6 @@ const AllPets = () => {
             .then(res => {
                 refetch();
                 console.log(res.data);
-
                 const successMessage = newStatus === 'Adopted' ? 'The Pet is Adopted' : 'The Pet Removed from Adoption';
                 Swal.fire({
                     position: "top-end",
@@ -120,13 +119,6 @@ const AllPets = () => {
                                             </button>
                                         )}
                                     </td>
-                                    {/* <td><button className=' btn bg-[#adf6fc] hover:bg-[#4ac6d1]'>Changes the Pet Status</button></td> */}
-                                    {/* <th>
-                                        {
-                                            na?.adoption_status == 'Adopted' ? <> <td><button onClick={() => handlePause(na._id)} className=' btn bg-red-200 hover:bg-red-500'>Click for Cancel Adoption?</button></td></> : <td><button onClick={() => handlePause(na._id)} className=' btn w-34 border-none hover:bg-[#54e0ec] bg-[#adf6fc]'>Click for Adopt </button></td>
-                                        }
-                                    </th> */}
-                                    {/* <td><button className=' btn bg-[#adf6fc] hover:bg-[#4ac6d1]'>Update</button></td> */}
                                     <td><Link className="btn btn-ghost text-2xl text-green-700" to={`/dashboard/updateItems/${na._id}`}><FaEdit /></Link></td>
                                     <td><button onClick={() => handleDeleteUser(na._id)} className=' bg-slate-300 p-2 text-xl rounded-full text-red-700'><FaTrashAlt /></button></td>
                                 </tr></>)
