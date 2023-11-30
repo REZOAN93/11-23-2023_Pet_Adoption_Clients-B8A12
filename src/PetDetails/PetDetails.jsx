@@ -23,7 +23,7 @@ const PetDetails = () => {
         const email = form.email.value;
         const requestDate = form.requestDate.value;
         const Phone = form.Phone.value;
-        const adoptionRequest = 'Pending'
+        const adoptionRequest = 'Reject';
         const address = form.address.value;
         const requestAdoption = { UserName, email, adoptionRequest, requestDate, Phone, address, image, adoptionID, pet_name, pet_age, pet_category, pet_location, short_description, long_description, date_added, max_donation_amount, donated_amount, petAdderby }
         console.log(requestAdoption)

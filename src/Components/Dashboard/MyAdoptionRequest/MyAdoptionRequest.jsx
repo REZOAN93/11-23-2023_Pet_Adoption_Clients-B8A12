@@ -17,50 +17,71 @@ const MyAdoptionRequest = () => {
         }
     })
 
-    const [status, setStatus] = useState(false)
+    // const [status, setStatus] = useState(false)
 
-    const handleInvitation = (id) => {
-        console.log(id)
-        setStatus(!status)
-        if (status == true) {
-            const adoptionRequest = 'Accept'
-            const invitation = { adoptionRequest }
-            console.log(invitation)
-            axiosSecure.patch(`/updateInvitationRequest/${id}`, invitation)
-                .then(res => {
-                    refetch()
-                    console.log(res.data)
-                    if (res?.data?.modifiedCount > 0) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "The Invitation is Accepted",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-        }
-        else {
-            const adoptionRequest = 'Reject'
-            const invitation = { adoptionRequest }
-            console.log(invitation)
-            axiosSecure.patch(`/updateInvitationRequest/${id}`, invitation)
-                .then(res => {
-                    console.log(res.data)
-                    refetch()
-                    if (res?.data?.modifiedCount > 0) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "The Invitation is Rejected",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-        }
-    }
+
+    const handleInvitation = (id, adoptionRequest) => {
+        const newStatus = adoptionRequest === 'Accept' ? 'Reject' : 'Accept';
+        const dataupdate = { status: newStatus };
+        console.log(dataupdate)
+        axiosSecure.patch(`/updateInvitationRequest/${id}`, dataupdate)
+            .then(res => {
+                refetch();
+                console.log(res.data);
+                const successMessage = newStatus === 'Accept' ? 'The Invitation is Accepted' : 'The Invitation is Rejected';
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: successMessage,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+    };
+
+    // const handleInvitation = (id) => {
+    //     console.log(id)
+    //     setStatus(!status)
+    //     if (status == true) {
+    //         const adoptionRequest = 'Accept'
+    //         const invitation = { adoptionRequest }
+    //         console.log(invitation)
+    //         axiosSecure.patch(`/updateInvitationRequest/${id}`, invitation)
+    //             .then(res => {
+    //                 refetch()
+    //                 console.log(res.data)
+    //                 if (res?.data?.modifiedCount > 0) {
+    //                     Swal.fire({
+    //                         position: "top-end",
+    //                         icon: "success",
+    //                         title: "The Invitation is Accepted",
+    //                         showConfirmButton: false,
+    //                         timer: 1500
+    //                     });
+    //                 }
+    //             })
+    //     }
+    //     else {
+    //         const adoptionRequest = 'Reject'
+    //         const invitation = { adoptionRequest }
+    //         console.log(invitation)
+    //         axiosSecure.patch(`/updateInvitationRequest/${id}`, invitation)
+    //             .then(res => {
+    //                 console.log(res.data)
+    //                 refetch()
+    //                 if (res?.data?.modifiedCount > 0) {
+    //                     Swal.fire({
+    //                         position: "top-end",
+    //                         icon: "success",
+    //                         title: "The Invitation is Rejected",
+    //                         showConfirmButton: false,
+    //                         timer: 1500
+    //                     });
+    //                 }
+    //             })
+    //     }
+    // }
+
 
     return (
         <div className="overflow-x-auto">
@@ -107,11 +128,15 @@ const MyAdoptionRequest = () => {
                                     <div className="text-sm opacity-50">Address: {na.address}</div>
                                 </td>
                                 <th>
-                                    <td><p>{na.adoptionRequest}</p></td>
+                                    {/* <td><p>/p></td> */}
+                                    {na?.adoptionRequest==='Accept'?<><p>The Invitation is Accepted</p></>:<><p>The Invitation is pending</p></>}
                                 </th>
 
                                 <th>
                                     {
+                                        na?.adoptionRequest == 'Accept' ? <> <td><button onClick={() => handleInvitation(na._id, na.adoptionRequest)} className=' btn bg-[#adf6fc] hover:bg-red-400'>Reject the Invitation</button></td></> : <td><button onClick={() => handleInvitation(na._id, na.adoptionRequest)} className=' btn bg-[#adf6fc] hover:bg-[#51dce9]'>Accept the Invitation</button></td>
+                                    }
+                                    {/* {
                                         na?.adoptionRequest === 'Accept' ? (
                                             <td>
                                                 <button onClick={() => handleInvitation(na._id)} className='btn'>
@@ -126,7 +151,7 @@ const MyAdoptionRequest = () => {
                                              </button>
                                          </td>
                                         )
-                                    }
+                                    } */}
                                 </th>
                             </tr>
                         </>)
