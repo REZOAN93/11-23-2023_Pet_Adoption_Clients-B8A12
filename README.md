@@ -1,6 +1,6 @@
 # Pet adoption Platform
 
-## Click here for the Live Link: [https://pet-adoption-2236d.web.app](https://pet-adoption-2236d.web.app)
+## Click here for the Live Link: [https://pet-adoption](https://pet-adoption-2236d.web.app)
 
 - Technologies Used Front End: React, Vite, Tailwind CSS 
 
